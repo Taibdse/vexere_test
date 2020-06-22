@@ -6,9 +6,6 @@ import GlobalContext from './context';
 
 
 function App() {
-
- 
-
   return (
    <GlobalContext>
      <HomePage/>

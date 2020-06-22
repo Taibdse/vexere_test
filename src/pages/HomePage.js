@@ -25,7 +25,6 @@ const mapSpreadsheetData = (data) => {
         return acc;
     }, {});
 
-    console.log(departmentsObj);
 
     const departments = Object.keys(departmentsObj).map((key, index) => ({
         title: key,
@@ -40,7 +39,7 @@ let searchTimeout = null;
 const HomePage = (props) => {
 
     const sharedContext = useContext(SharedContext);
-    const { signedIn,isLoadedGoogleResource, isLoadingGoogleResource } = sharedContext;
+    const { signedIn, isLoadedGoogleResource } = sharedContext;
 
     const [currentTab, setCurrenttab] = useState(1);
     const [departments, setDepartments] = useState([]);
@@ -51,7 +50,7 @@ const HomePage = (props) => {
 
     useEffect(() => {
         if(isLoadedGoogleResource){
-            initGoogleClientLoad();
+            sharedContext.setSignedIn(SpreadsheetService.isSignedIn());
         }
     }, [isLoadedGoogleResource]);
 
@@ -62,31 +61,11 @@ const HomePage = (props) => {
     }, [signedIn]);
     
     
-    const initGoogleClientLoad = async () => {
-        try {
-            await SpreadsheetService.handleClientLoad();
-            await SpreadsheetService.initClient();
-            if(SpreadsheetService.isSignedIn()){
-                console.log(123)
-                sharedContext.setSignedIn(true);
-                await getSpreadsheetData();
-            } else {
-                sharedContext.setSignedIn(false);
-            }
-        } catch (error) {
-            console.log(error);
-            sharedContext.setSignedIn(false);
-        }
-    }
-
     const getSpreadsheetData = async () => {
         setLoading(true);
         try {
             const res = await SpreadsheetService.makeApiCall();
-            console.log(res.result);
-            
             const data = mapSpreadsheetData(res.result.values.slice(8));
-            console.log(data);
             setDepartments(data.departments);
             setEmployees(data.employees);
             filterEmployees(data.employees, filters);

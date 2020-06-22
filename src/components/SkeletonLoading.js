@@ -3,7 +3,6 @@ import { Skeleton, Row, Col } from 'antd';
 
 
 const SkeletonLoading = () => {
-
     const skeletons = [1,2,3,4,5,6];
     
     return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Col, Row, Skeleton } from 'antd';
+import { Card, Col, Row } from 'antd';
 import { UsergroupAddOutlined } from '@ant-design/icons';
 
 const DepartmentCardHeader = (props) => {
@@ -23,7 +23,9 @@ const cardBodyStyle = {
     borderBottomLeftRadius: '20px',
     borderBottomRightRadius: '20px',
     fontWeight: 'bold',
-    fontSize: '1.1em'
+    fontSize: '1.1em',
+    paddingTop: '10px',
+    paddingBottom: '10px'
 }
 
 const Departments = (props) => {

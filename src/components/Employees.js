@@ -8,7 +8,7 @@ const Employees = (props) => {
     return (
         <Row gutter={16}>
             {employees.map(employee => (
-                <Col xs={24} sm={12} md={8} lg={6}
+                <Col xs={24} sm={12} md={12} lg={8} xl={6}
                     style={{marginBottom: '15px'}} 
                     key={employee.id}
                 >

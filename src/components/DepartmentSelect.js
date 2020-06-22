@@ -13,9 +13,6 @@ const DepartmentSelect = (props) => {
             optionFilterProp="children"
             onChange={onChange}
             value={value}
-            // onFocus={onFocus}
-            // onBlur={onBlur}
-            // onSearch={onSearch}
             filterOption={(input, option) =>
                 option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
             }
