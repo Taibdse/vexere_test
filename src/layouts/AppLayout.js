@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Layout, Menu, Button } from 'antd';
+import { Layout, Button } from 'antd';
 import SpreadsheetService from '../services/spreadsheet.service';
 import { SharedContext } from '../context/shared.context';
 import AppSpinner from '../components/AppSpinner';
@@ -16,7 +16,7 @@ const AppLayout = (props) => {
 
     const signIn = async () => {
         try {
-            const res = await SpreadsheetService.signIn();
+            await SpreadsheetService.signIn();
             sharedContext.setSignedIn(true);
         } catch (error) {
             console.log(error);
@@ -25,7 +25,7 @@ const AppLayout = (props) => {
 
     const signOut = async () => {
         try {
-            const res = await SpreadsheetService.signOut();
+            await SpreadsheetService.signOut();
             sharedContext.setSignedIn(false);
         } catch (error) {
             console.log(error);
