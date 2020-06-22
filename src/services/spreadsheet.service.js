@@ -1,5 +1,5 @@
 
-import { GOOGLE_API_KEY, GOOGLE_CLIENT_ID,  } from '../common/constants';
+import { GOOGLE_API_KEY, GOOGLE_CLIENT_ID } from '../common/constants';
 
 class SpreadsheetService {
 
@@ -13,7 +13,6 @@ class SpreadsheetService {
         return window.gapi.client.sheets.spreadsheets.values.get(params);
     }
   
-
     static initClient() {
         const API_KEY = GOOGLE_API_KEY ; 
         const CLIENT_ID = GOOGLE_CLIENT_ID; 
@@ -37,11 +36,11 @@ class SpreadsheetService {
         })
     }
 
-    static signIn(event) {
+    static signIn() {
         return window.gapi.auth2.getAuthInstance().signIn();
     }
 
-    static signOut(event) {
+    static signOut() {
         return window.gapi.auth2.getAuthInstance().signOut();
     }
 }

@@ -10,6 +10,14 @@ const buttonStyle = {
     marginTop: '15px' 
 }
 
+const headerStyle = { 
+    position: 'fixed', 
+    zIndex: 1, 
+    width: '100%' 
+}
+
+const logoStyle = { float: 'left', color: '#fff' }
+
 const AppLayout = (props) => {
     const sharedContext = useContext(SharedContext);
     const { signedIn, isLoadingGoogleResource, isLoadedGoogleResource } = sharedContext;
@@ -34,8 +42,8 @@ const AppLayout = (props) => {
 
     return (
         <Layout>
-            <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
-                <div className="logo" style={{ float: 'left', color: '#fff' }} >Vexere</div>
+            <Header style={headerStyle}>
+                <div className="logo" style={logoStyle} >Vexere</div>
                 {(!signedIn && isLoadedGoogleResource) && (
                     <Button  onClick={signIn} style={buttonStyle}>
                         Sign In With Goolge Account

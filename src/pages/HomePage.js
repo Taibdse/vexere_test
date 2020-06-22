@@ -107,8 +107,8 @@ const HomePage = (props) => {
                     totalEmployees={employees.length} 
                     totalDepartments={departments.length}
                 >
-                    { currentTab === 1 && <Departments departments={departments} /> }
-                    { currentTab === 2 && (
+                    { currentTab === "1" && <Departments departments={departments} /> }
+                    { currentTab === "2" && (
                         <Row gutter={16}>
                            <Col xs={12} sm={8} lg={4}>
                                 <DepartmentSelect 
